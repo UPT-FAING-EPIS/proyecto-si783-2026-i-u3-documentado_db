@@ -1,0 +1,44 @@
+{
+  "skills": [
+    {
+      "id": "db-indexing",
+      "name": "Database Indexing & Keys Auditor",
+      "description": "Audita llaves primarias, foráneas e identifica columnas críticas que necesitan indexación para optimizar búsquedas.",
+      "category": "Design & Performance",
+      "techTrigger": [".sql", ".dbml", ".prisma", ".json"],
+      "files": ["SKILL.md"]
+    },
+    {
+      "id": "sql-optimization",
+      "name": "SQL Query Optimization Expert",
+      "description": "Reglas avanzadas para reescribir consultas SQL lentas, detectar malas prácticas y optimizar con EXPLAIN ANALYZE.",
+      "category": "Performance",
+      "techTrigger": [".sql", ".js", ".ts", ".py"],
+      "files": ["SKILL.md"]
+    },
+    {
+      "id": "schema-security",
+      "name": "Database Security & Hardening",
+      "description": "Evalúa el esquema contra riesgos de inyección SQL, falta de encriptación y debilidades en control de accesos.",
+      "category": "Security",
+      "techTrigger": [".sql", ".json", ".yaml", ".yml"],
+      "files": ["SKILL.md"]
+    },
+    {
+      "id": "db-migrations",
+      "name": "Database Migration Assistant",
+      "description": "Guía experta para diseñar scripts de migración seguros, evitar pérdidas de datos en producción y manejar rollbacks.",
+      "category": "Design & Operations",
+      "techTrigger": [".sql", ".js", ".ts", ".json"],
+      "files": ["SKILL.md"]
+    },
+    {
+      "id": "orm-best-practices",
+      "name": "ORM Performance & Best Practices",
+      "description": "Evita problemas comunes como consultas N+1, mala gestión de relaciones y problemas de pool de conexiones usando Prisma, Drizzle o Sequelize.",
+      "category": "Performance & Design",
+      "techTrigger": [".js", ".ts", ".prisma", ".json"],
+      "files": ["SKILL.md"]
+    }
+  ]
+}

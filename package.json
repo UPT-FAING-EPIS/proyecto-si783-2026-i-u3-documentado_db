@@ -1,0 +1,117 @@
+{
+  "name": "db-skills-ai",
+  "version": "1.0.7",
+  "description": "Sistema de documentación automática de bases de datos con IA",
+  "publisher": "ClaraQuispe",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "main": "./extension.js",
+  "bin": {
+    "db-skills": "./bin/cli.js"
+  },
+  "files": [
+    "bin/cli.js"
+  ],
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "database",
+    "documentation",
+    "ai",
+    "openai",
+    "sql",
+    "nosql",
+    "diagram",
+    "converter",
+    "audit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jspdf": "^4.2.1",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.20.1",
+    "ws": "^8.20.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "db-documenter.open",
+        "title": "Documentador BD: Analizar y Documentar Esquema"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "db-documenter.open",
+          "when": "resourceExtname == .sql || resourceExtname == .dbml || resourceExtname == .json || resourceExtname == .yaml || resourceExtname == .yml",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "db-documenter-container",
+          "title": "Documentador BD",
+          "icon": "database-icon.svg"
+        }
+      ],
+      "panel": [
+        {
+          "id": "db-panel-container",
+          "title": "DB",
+          "icon": "database-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "db-documenter-container": [
+        {
+          "id": "db-documenter-view",
+          "name": "DataScript AI"
+        }
+      ],
+      "db-panel-container": [
+        {
+          "type": "webview",
+          "id": "db-panel-view",
+          "name": "Menú de Base de Datos"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "db-documenter-view",
+        "contents": "### DataScript AI\n\nEste es tu panel local de auditoría y análisis de bases de datos.\n\nPara iniciar:\n1. Abre un archivo `.sql`, `.dbml` o `.json` en tu editor.\n2. Haz clic derecho y selecciona **Documentador BD: Analizar y Documentar Esquema**.\n\n[Abrir Panel General](command:db-documenter.open)"
+      }
+    ],
+    "configuration": {
+      "title": "DataScript AI",
+      "properties": {
+        "datascript.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Tu API Key de OpenAI para análisis avanzado y chat."
+        },
+        "datascript.aiModel": {
+          "type": "string",
+          "enum": ["gpt-4o", "gpt-3.5-turbo", "gpt-4-turbo"],
+          "default": "gpt-4o",
+          "description": "Modelo de IA a utilizar para las consultas de la base de datos."
+        }
+      }
+    }
+  }
+}
